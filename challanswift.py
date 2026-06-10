@@ -63,7 +63,7 @@ while system_active.lower() == "yes" or system_active.lower() == "y":
                 print("✅ Checked: Driver is wearing a seatbelt.")
 
         # 2. Speed Check
-        speed = int(input("\nEnter the vehicle speed (in km/h): "))
+        speed = int(input("\nEnter the vehicle speed (limit is 60 km/h): "))
         if speed > 60:
             total_fine = total_fine + 2000
             violations_list = violations_list + "* Over-speeding (Fine: Rs 2000)\n"
