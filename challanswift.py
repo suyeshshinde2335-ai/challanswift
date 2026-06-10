@@ -10,7 +10,7 @@ def type_effect(text, speed=0.03):
 
 # ----------------- MAIN PROGRAM v4.0 (INFINITE LOOP) -----------------
 type_effect("\n=== Welcome to CHALLANSWIFT v4.0: Continuous Logging System ===", 0.05)
-type_effect("------------------------------------------------------------", 0.05)
+type_effect("****----------------------------------------------------****", 0.05)
 
 officer_name = input("Enter On-Duty Officer Name: ")
 
