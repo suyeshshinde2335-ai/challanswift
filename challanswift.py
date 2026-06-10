@@ -114,4 +114,4 @@ while system_active.lower() == "yes" or system_active.lower() == "y":
     print("\n----------------------------------------------")
     system_active = input("Do you want to log another vehicle? (yes/no): ")
 
-print("\nExiting ChallanSwift System. Data successfully compiled. Drive safe! 🚑⚡")
+print("\nExiting ChallanSwift System. Data successfully compiled. Drive safe! 🚦🚗")
