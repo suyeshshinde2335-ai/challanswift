@@ -1,4 +1,4 @@
-# Project: ChallanSwift v4.0 | Developed by Suyesh Shinde
+# Project: ChallanSwift v5.0 | Developed by Suyesh Shinde
 import time
 import sys
 
@@ -9,13 +9,16 @@ def type_effect(text, speed=0.03):
         time.sleep(speed)
     print()
 
-# ----------------- MAIN PROGRAM v4.0 (INFINITE LOOP) -----------------
-type_effect("\n=== Welcome to CHALLANSWIFT v4.0: Continuous Logging System ===", 0.05)
-type_effect("****-------------------------------------------------------****", 0.05)
+# ----------------- MAIN PROGRAM v5.0 -----------------
+type_effect("\n=== Welcome to CHALLANSWIFT v5.0: Live Summary System ===", 0.05)
+type_effect("------------------------------------------------------------", 0.05)
 
 officer_name = input("Enter On-Duty Officer Name: ")
 
-# Naya Feature: Loop continuous chalega jab tak system exit na ho
+# Naya Feature: Counters for Shift Summary
+total_vehicles_logged = 0
+total_revenue_collected = 0
+
 system_active = "yes"
 
 while system_active.lower() == "yes" or system_active.lower() == "y":
@@ -63,7 +66,7 @@ while system_active.lower() == "yes" or system_active.lower() == "y":
                 print("✅ Checked: Driver is wearing a seatbelt.")
 
         # 2. Speed Check
-        speed = int(input("\nEnter the vehicle speed (limit is 60 km/h): "))
+        speed = int(input("\nEnter vehicle speed (Limit is 60 km/h): "))
         if speed > 60:
             total_fine = total_fine + 2000
             violations_list = violations_list + "* Over-speeding (Fine: Rs 2000)\n"
@@ -76,7 +79,7 @@ while system_active.lower() == "yes" or system_active.lower() == "y":
         if license_check.lower() == "no":
             total_fine = total_fine + 5000
             violations_list = violations_list + "* No Valid License (Fine: Rs 5000)\n"
-            print("❌ Fine Added: Rs 2000 for No License.")
+            print("❌ Fine Added: Rs 5000 for No License.")
         else:
             print("✅ Checked: Driver has a valid license.")
 
@@ -89,9 +92,13 @@ while system_active.lower() == "yes" or system_active.lower() == "y":
         else:
             print("✅ Checked: Driver is sober.")
 
+    # Update Global Shift Counters
+    total_vehicles_logged = total_vehicles_logged + 1
+    total_revenue_collected = total_revenue_collected + total_fine
+
     # ----------------- FINAL CHALLAN RECEIPT -----------------
     print("\n==============================================")
-    type_effect("       CHALLANSWIFT DIGITAL RECEIPT v4.0  ", 0.04)
+    type_effect("       CHALLANSWIFT DIGITAL RECEIPT v5.0  ", 0.04)
     print("==============================================")
     print(f"On-Duty Officer : {officer_name}")
     print(f"Driver Name     : {driver_name}")
@@ -110,8 +117,15 @@ while system_active.lower() == "yes" or system_active.lower() == "y":
     print(f"TOTAL PENALTY AMOUNT TO PAY: Rs {total_fine}")
     print("==============================================")
     
-    # Loop control: Poochhna ki agla challan kaatna hai ya nahi
     print("\n----------------------------------------------")
     system_active = input("Do you want to log another vehicle? (yes/no): ")
 
-print("\nExiting ChallanSwift System. Data successfully compiled. Drive safe! 🚦🚗")
+# ----------------- SHIFT SUMMARY REPORT (END OF LOOP) -----------------
+print("\n==============================================")
+type_effect("       ⚡ END OF SHIFT SUMMARY REPORT ⚡     ", 0.04)
+print("==============================================")
+print(f"On-Duty Officer       : {officer_name}")
+print(f"Total Vehicles Checked : {total_vehicles_logged}")
+print(f"Total Fine Collected  : Rs {total_revenue_collected}")
+print("==============================================")
+type_effect("ChallanSwift System Closed. Drive safe! 🚦🚗", 0.04)
